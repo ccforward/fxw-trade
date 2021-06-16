@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+    <title>剧个本APP - 官方网站|剧本杀|推理|社交</title>
+    <meta name="Keywords"
+        content="剧个本,剧个本官网,剧个本官方,剧个本,名侦探柯南,剧情推理,流言侦探,剧情推理,剧情解密,真人扮演,逻辑,犯罪现场,烧脑悬疑,密室逃脱,戏精,larp,跑团,傀儡的记忆,丹水山庄,玩吧">
+    <meta name="description"
+        content="剧个本APP是一款语音推理社交软件,《明星大侦探》同类剧本推理。我们提供了好体验的线上剧本杀，专业的原创谋杀之谜剧本，新鲜的谋杀之谜资讯，带给你比狼人更多的扮演与推理乐趣">
+    <link rel="shortcut icon" href="./assets/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/bootstrap.css">
+    <script src="./assets/jQuery.js"></script>
+    <script src="./assets/bootstarp.js"></script>
+
+    <script>
+        (function (_D) {
+            var _self = {};
+            _self.resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            _self.Html = _D.getElementsByTagName("html")[0];
+            _self.widthProportion = function () {
+                var p = Number((_D.body && _D.body.clientWidth || _self.Html.offsetWidth) / 720).toFixed(3);
+                return p > 1.067 ? 1.067 : p < 0.444 ? 0.444 : p;
+            };
+            _self.changePage = function () {
+                _self.Html.setAttribute("style", "font-size:" + _self.widthProportion() * 100 + "px");
+                _self.correctPx();
+            };
+            _self.correctPx = function () {
+                var docEl = document.documentElement;
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth || clientWidth > 768) return;
+                var div = document.createElement('div');
+                div.style.width = '1.4rem';
+                div.style.height = '0';
+                document.head.appendChild(div);
+                var ideal = 140 * clientWidth / 720;
+                var rmd = (div.clientWidth / ideal);
+                console.log(rmd);
+                if (rmd > 1.2 || rmd < 0.8) {
+                    docEl.style.fontSize = 100 * (clientWidth / 720) / rmd + 'px';
+                    document.head.removeChild(div);
+                }
+
+            };
+            _self.changePage();
+            if (!document.addEventListener) return;
+            window.addEventListener(_self.resizeEvt, _self.changePage, false);
+            document.addEventListener('DOMContentLoaded', _self.changePage, false);
+        })(document);
+    </script>
+    <!-- Styles -->
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+
+        }
+
+        html,
+        body {
+            background: #1A1920 !important;
+            font-size: calc(100vw / 7.5);
+            width: 100%;
+            height: 100%;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        @font-face {
+            font-family: design;
+            /*这里是说明调用来的字体名字*/
+            src: url('https://static.911tech.cn/upload/fonts/designuse.ttf');
+            /*这里是字体文件路径*/
+        }
+    </style>
+    <style>
+        .section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            background-image: url(https://static.911tech.cn/upload/image/m2/new_1.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .shadow {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            background: rgba(0, 0, 0, .4);
+        }
+
+        .inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 11vh;
+        }
+
+        .inner>h2 {
+            /*width: 19.19rem;*/
+            /*height: 5.39rem;*/
+
+            width: 3.07rem;
+            height: 0.86rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .current>h2 {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.8s;
+        }
+
+        .inner>h2:before,
+        .inner>h2:after {
+            background: #fff;
+            content: '';
+            display: block;
+            height: 2px;
+            position: absolute;
+            width: 0;
+        }
+
+        .current h2:before,
+        .current h2:after {
+            width: 100%;
+            transition: all 0.8s ease 0.8s;
+        }
+
+        .inner>h2:before {
+            top: 0;
+            left: 0;
+        }
+
+        .inner>h2:after {
+            bottom: 0;
+            right: 0;
+        }
+
+        .inner>h2>img {
+            /*width: 2.31rem;*/
+            /*height: 2.56rem;*/
+            width: 0.37rem;
+            height: 0.41rem;
+        }
+
+        .inner>h2>.app-nickname {
+            /*font-size: 1.88rem;*/
+            font-size: 0.3rem;
+            font-family: design !important;
+            /*font-family: FZChaoCuHei-M10S FZCCHJW FZCCHJW—GB1-0;*/
+            font-weight: normal;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 16px;
+            /*margin-left: 0.56rem;*/
+            margin-left: 0.09rem;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .current>.info {
+            opacity: 1;
+            transition: all 1.3s 1.6s;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 0.2rem;
+            color: rgba(255, 255, 255, 1);
+            font-weight: 300;
+            margin-top: 0.4rem;
+        }
+
+        .subtitle {
+            font-size: 0.16rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            margin-top: 0.1rem;
+        }
+
+        .download-btn {
+            /*width: 1.89rem;*/
+            width: 20vh;
+            height: 0.5rem;
+            background: #ccc;
+            border-radius: 0.02rem;
+            font-size: 0.14rem;
+            font-weight: 600;
+            color: rgba(47, 44, 56, 1);
+            line-height: 0.5rem;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .qrcode {
+            width: 20vh;
+            height: 20vh;
+            margin-top: 0.3rem;
+        }
+
+        .more {
+            width: 0.7rem;
+            height: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            margin-left: -0.35rem;
+            bottom: 0.1rem;
+            opacity: 0;
+        }
+
+        .active {
+            opacity: 1;
+            height: 0.6rem;
+            transition: all 1s 3s;
+        }
+
+        .more>p {
+            font-size: 0.12rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .more>img {
+            width: 0.12rem;
+            height: 0.13rem;
+            margin-top: 0.1rem;
+        }
+
+        .app-info {
+            width: 100%;
+            height: 3rem;
+            background: rgba(26, 25, 32, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-desc {
+            /* height: 1.11rem; */
+            font-size: 0.13rem;
+            font-family: FZCCHJW--GB1-0;
+            color: rgba(255, 255, 255, 1);
+            /* line-height: 0.37rem; */
+            letter-spacing: 2px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .line {
+            width: 5.5rem;
+            height: 0.01rem;
+            background: rgba(255, 206, 93, 1);
+            margin: 0.2rem 0;
+        }
+
+        .app-content {
+            font-size: 0.1rem;
+            /*font-family: PingFangSC-Semibold;*/
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            line-height: 0.2rem;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        .app-info .list {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.2rem;
+        }
+
+        .list-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .list-item>img {
+            width: 0.6rem;
+            height: 0.6rem;
+        }
+
+        .list-item>p {
+            font-size: 0.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            margin-top: 0.1rem;
+        }
+    </style>
+    <style>
+        section {
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+        }
+
+        section>img {
+            height: 100%;
+            display: block;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            margin: 0 0.38rem;
+        }
+
+        .st {
+            font-size: 0.12rem;
+            font-family: FZCCHJW--GB1-0;
+            font-weight: normal;
+            color: rgba(255, 255, 255, 1);
+            line-height: 0.2rem;
+            letter-spacing: 3px;
+        }
+
+        .nd {
+            font-size: 0.12rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            line-height: 0.2rem;
+            margin-top: 0.1rem;
+        }
+
+        .playbook {
+            width: 100%;
+            height: 1.12rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .playbook-title {
+            font-size: 0.12rem;
+            font-family: FZCCHJW--GB1-0;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 5px;
+        }
+
+        .playbook-subtitle {
+            font-size: 0.09rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            margin-top: 0.1rem;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 2rem;
+            overflow: hidden;
+        }
+
+        .swiper img {
+            display: block;
+            height: 100%;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .move {
+            /* width: 100%; */
+            height: 100%;
+            /* overflow: scroll; */
+            display: flex;
+            flex-direction: row;
+        }
+
+        .move-top {
+            animation: bj_move_top 400s linear infinite;
+        }
+
+        .move-bottom {
+            animation: bj_move_bottom 400s linear reverse infinite;
+        }
+
+        @keyframes bj_move_top {
+            0% {
+                transform: translate3d(-7000px, 0, 0);
+            }
+
+            50% {
+                transform: translate3d(-3500px, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-0px, 0, 0);
+            }
+        }
+
+        @keyframes bj_move_bottom {
+            0% {
+                transform: translate3d(-6950px, 0, 0);
+            }
+
+            50% {
+                transform: translate3d(-3500px, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(0px, 0, 0);
+            }
+        }
+    </style>
+    <style>
+        .boot {
+            width: 100%;
+            margin: 0.23rem 0;
+            height: 1.5rem;
+            background-image: url("https://static.911tech.cn/upload/image/m/bitmap.png");
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .boot-left {
+            width: 3.35rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .boot-title {
+            font-size: 0.1rem;
+            font-family: FZCCHJW--GB1-0;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 6px;
+        }
+
+        .boot-subtitle {
+            font-size: 0.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            margin-top: 0.1rem;
+        }
+
+        .boot-right {
+            width: 1.2rem;
+            height: 0.4rem;
+            background: #ccc;
+            border-radius: 0.02rem;
+            font-size: 0.14rem;
+            font-weight: 500;
+            color: rgba(47, 44, 56, 1);
+            line-height: 0.4rem;
+            margin-left: 0.4rem;
+            text-align: center;
+        }
+    </style>
+    <style>
+        .about {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #242B33;
+            padding: 0.3rem 0;
+        }
+
+        .section-title {
+            font-size: 0.12rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 6px;
+        }
+
+        .qrcode-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0.2rem 0;
+        }
+
+        .qrcode-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .qrcode-item>img {
+            width: 0.83rem;
+            height: 0.83rem;
+        }
+
+        .qrcode-item>p {
+            font-size: 0.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            margin-top: 0.07rem;
+            transform: scale(0.8);
+        }
+
+        .concat {
+            text-align: center;
+            font-size: 0.12rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            line-height: 0.23rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <style>
+            header {
+                width: 100%;
+                height: 49px;
+                position: fixed;
+                top: 0;
+                z-index: 3;
+            }
+
+            header>.header-container {
+                width: 94%;
+                margin: auto;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .header-left {
+                /*float: left;*/
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .header-left>img {
+                width: 0.17rem;
+                height: 0.17rem;
+            }
+
+            .header-left>span {
+                font-size: 0.15rem;
+                font-family: PingFangSC-Semibold;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 1);
+                margin-left: 0.17rem;
+            }
+
+            .header-right {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .header-right>a {
+                font-size: 0.1rem;
+                color: rgba(255, 255, 255, 1);
+                margin-left: 0.25rem;
+            }
+
+            .header-right>a:hover {
+                color: #f1e151 !important;
+            }
+
+            .active_nav {
+                color: #f1e151 !important;
+            }
+
+            .header-show {
+                background-color: #1A191F;
+                transition: all 0.8s;
+            }
+
+            .header-hidden {
+                background-color: transparent;
+                transition: all 0.8s;
+            }
+
+            .header-nav {
+                background-color: #2F2C38;
+            }
+        </style>
+        <style>
+            .shadow {
+                position: fixed;
+                left: 0;
+                top: 0;
+                z-index: 1000;
+                background: rgba(0, 0, 0, .5);
+                width: 100vw;
+                height: 100vh;
+                display: none;
+            }
+
+            .my-modal {
+                width: 400px;
+                background-color: #FFFFFF;
+                border-radius: 6px;
+                margin: 0 auto -200px;
+                padding: 50px;
+                opacity: 0;
+                position: absolute;
+                left: 50%;
+                transition: all .3s linear;
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                /* Chrome 和 Safari */
+                -moz-backface-visibility: hidden;
+                /* Firefox */
+                -ms-backface-visibility: hidden;
+            }
+
+            .modal-title {
+                font-size: 22px;
+            }
+
+            .login-input-margin {
+                margin-top: 15px;
+            }
+
+            .mszm-checkbox {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-top: 6px;
+            }
+
+            .mszm-checkbox>input {
+                width: 8px;
+                height: 9px;
+                margin: 0 3px 0 0;
+            }
+
+            .mszm-checkbox span {
+                font-size: 12px;
+                transform: scale(0.9);
+                color: #989696;
+            }
+
+            .login-btn {
+                cursor: pointer;
+                background-color: rgba(255, 187, 29, 1);
+                color: #FFF;
+                border: 0 none;
+                font-size: 14px;
+                height: 42px;
+                line-height: 42px;
+                text-align: center;
+                margin-top: 20px;
+                border-radius: 3px;
+            }
+
+            .login-btn:hover {
+                background-color: rgb(222, 166, 34);
+            }
+
+            .modal-close {
+                position: absolute;
+                right: 25px;
+                top: 0;
+                width: 50px;
+                height: 50px;
+                border-radius: 0 0 50px 50px;
+                text-align: center;
+                line-height: 50px;
+                background-color: #444;
+                font-size: 16px;
+                color: #FFF;
+            }
+
+            .to-register {
+                cursor: pointer;
+                text-align: center;
+                margin-top: 10px;
+                font-size: 12px;
+                color: red;
+                text-decoration: underline;
+            }
+
+            .mszm-alert {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 0;
+                opacity: 0;
+                color: #a94442;
+                background-color: #f2dede;
+                z-index: 1003;
+                border-radius: 4px;
+                font-size: 14px;
+                border: 1px solid #ebccd1;
+                transition: all .3s linear;
+                padding: 6px 30px;
+            }
+
+            .modal-title a {
+                color: #00c3b6;
+            }
+
+            .header-user {
+                font-size: 14px !important;
+                color: #f1e151 !important;
+                text-decoration: none;
+            }
+
+            .header-logout {
+                color: #333;
+                min-width: 80px !important;
+                padding: 5px 8px !important;
+                margin-top: 7px !important;
+            }
+        </style>
+        <style>
+            .login-modal {
+                z-index: 1001;
+            }
+
+            .register-modal {
+                z-index: 1002;
+            }
+
+            .login .login-modal {
+                transform: rotateY(0)
+            }
+
+            .login .register-modal {
+                transform: rotateY(-180deg)
+            }
+
+            .register .login-modal {
+                transform: rotateY(180deg)
+            }
+
+            .register .register-modal {
+                transform: rotateY(0)
+            }
+
+            .alert-toggle {
+                top: 22px;
+                opacity: 1;
+            }
+
+            .modal-transform {
+                margin: 64px 0 0 -200px;
+                opacity: 1;
+            }
+        </style>
+        <style>
+            .glyphicon {
+                top: 0;
+            }
+
+            .my-modal .input-group-sm>.form-control,
+            .my-modal .input-group-sm>.input-group-addon {
+                height: 40px;
+                padding: 5px 13px;
+            }
+        </style>
+        <header id="header" class="header-hidden">
+            <div class="header-container">
+                <div class="header-left">
+                    <img src="./assets/icon.png" alt="剧个本APP">
+                    <span>剧个本APP</span>
+                </div>
+                <div class="header-right" id="nav_btn">
+
+                    <a class="header-home active_nav" href="http://www.jugeben.com/">首页</a>
+
+
+                    <div class="btn-group" style="margin-left: 0.25rem;display: none">
+                        <div class="header-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"></div>
+                        <p class="header-logout dropdown-menu" onclick="userLogout()">退出登录</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <section id="section" class="section">
+
+
+
+
+
+            <div class="shadow"></div>
+            <div class="inner current" id="section0">
+                <h2>
+                    <img src="./assets/icon.png" alt="剧个本APP">
+                    <p class="app-nickname">剧个本APP</p>
+                </h2>
+                <div class="info">
+                    <p class="title">角色扮演 剧情推理 语音连麦</p>
+                    <p class="subtitle">剧本质量很高的推理社交App</p>
+                    <a class="download-btn" >
+                        下载App
+                    </a>
+                    <!-- <img class="qrcode" style="opacity: 1;" src="./assets/qrcode_mszmapp.com.png" alt="剧个本APP"> -->
+                </div>
+
+            </div>
+            <a class="more active" href="/#more">
+                <p>了解更多</p>
+                <img src="./assets/more.png" alt="剧个本APP">
+            </a>
+        </section>
+        <div id="more" class="app-info">
+            <p class="app-desc">剧本杀游戏<br>每一次都是一场惊心动魄的旅程</p>
+            <div class="line"></div>
+            <p class="app-content">在这款剧本杀APP中，你将与其他玩家一同进入剧本中，扮演你心仪的角色，阅<br>读故事并合作破案。这里只有最基础的规则，剩下的全由你掌控。</p>
+            <div class="list">
+                <div class="list-item">
+                    <img src="./assets/icon1.png" alt="剧个本APP">
+                    <p>角色扮演</p>
+                </div>
+                <div class="list-item" style="margin: 0 0.21rem;">
+                    <img src="./assets/icon2.png" alt="剧个本APP">
+                    <p>剧情推理</p>
+                </div>
+                <div class="list-item">
+                    <img src="./assets/icon3.png" alt="剧个本APP">
+                    <p>语音连麦</p>
+                </div>
+            </div>
+        </div>
+        <section id="about" style="background:rgba(43,52,61,1);flex-direction: row;">
+            <img src="./assets/section3.png" alt="剧个本APP">
+            <div class="section-content">
+                <p class="st">烧脑控最爱的APP,<br>逻辑帝扎堆的游乐场</p>
+                <p class="nd">加入这场逻辑与推理的极致比拼。<br>见证每离奇案件，搜查证据，推理谜题，在只言片语中判断出最终真相，这就是剧本杀！</p>
+            </div>
+        </section>
+        <section style="background:rgba(39,48,56,1);flex-direction: row-reverse;">
+            <img src="./assets/section4.png" alt="剧个本APP">
+            <div class="section-content">
+                <p class="st">戏精在这里找到了秀场。<br>角色扮演，当然要这么玩！</p>
+                <p class="nd">全语音事实互动，随时随地展现你的戏精本色，<br>在扑朔迷离的案情背后，用演技传递讯息或者隐藏自己，这里将是你的绝佳秀场！</p>
+            </div>
+        </section>
+        <section style="background:rgba(36,43,51,1);flex-direction: row;">
+            <img src="./assets/section5.png" alt="剧个本APP">
+            <div class="section-content">
+                <p class="st">剧本杀萌新？我们包教包会<br>戏精老司机？我们完美配对</p>
+                <p class="nd">
+                    没接触过剧本杀？没问题，我们为你准备了精心制作的单人新手剧本，从单人到多人，一步一步带你在百变山庄中走向进阶。<br>戏精们找不到好队伍？交给我们，多区域匹配、完局结组，让你不错过任何一个好拍档！下一局，一起开黑
+                </p>
+            </div>
+        </section>
+        <div id="playbook" class="playbook">
+            <p class="playbook-title">海量剧本，每日上新</p>
+            <p class="playbook-subtitle">每日上新剧本，海量脑洞供应，今晚回家来一局？</p>
+        </div>
+
+        <div class="swiper">
+            <div class="move move-top">
+                <img src="./assets/book0.png" alt="剧个本APP">
+                <img src="./assets/book0.png" alt="剧个本APP">
+                <img src="./assets/book0.png" alt="剧个本APP">
+                <img src="./assets/book0.png" alt="剧个本APP">
+                <img src="./assets/book0.png" alt="剧个本APP">
+                <img src="./assets/book0.png" alt="剧个本APP">
+                <img src="./assets/book0.png" alt="剧个本APP">
+            </div>
+        </div>
+        <div class="swiper">
+            <div class="move move-bottom">
+                <img src="./assets/book1.png" alt="剧个本APP">
+                <img src="./assets/book1.png" alt="剧个本APP">
+                <img src="./assets/book1.png" alt="剧个本APP">
+                <img src="./assets/book1.png" alt="剧个本APP">
+                <img src="./assets/book1.png" alt="剧个本APP">
+                <img src="./assets/book1.png" alt="剧个本APP">
+                <img src="./assets/book1.png" alt="剧个本APP">
+            </div>
+        </div>
+
+        <div id="boot" class="boot">
+            <div class="boot-left">
+                <p class="boot-title">真的玩过，真的不同</p>
+                <p class="boot-subtitle">只有亲自游玩，才知道原来剧本杀可以这么有趣！来试试吧？即将开放免费下载！</p>
+            </div>
+            <a class="boot-right">下载</a>
+        </div>
+        <style>
+            footer {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #000000;
+                padding: 30px 0;
+            }
+
+            .other {
+                display: flex;
+                align-items: center;
+                margin: 14px 0;
+            }
+
+            .other>a {
+                font-size: 12px;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 1);
+                letter-spacing: 5px;
+            }
+
+            .other .column {
+                font-size: 0.12rem;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 1);
+                letter-spacing: 5px;
+                padding: 0 0.1rem;
+            }
+
+            .copyright {
+                font-size: 11px;
+                color: #ccc;
+                padding: 0 10px;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+
+            .copyright a {
+                color: #00c3b6;
+                outline: 0;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .copyright .float-window {
+                padding: 0.1rem 0.3rem;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.3);
+                position: fixed;
+                top: 0.5rem;
+                left: 50%;
+                transform: translate(-50%, 0);
+                border-radius: 0.5rem;
+                font-size: 11px;
+            }
+        </style>
+
+        <footer>
+            <div class="copyright">
+                本公司社交产品适合18岁以上用户<br>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        $('#section0').addClass('current');
+        $('.more').addClass('active');
+
+
+        $(function () {
+            $('a[href*=#],area[href*=#]').click(function (e) {
+                $(e.target).addClass('active_nav').siblings().removeClass('active_nav');
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location
+                    .hostname == this.hostname) {
+                    var $target = $(this.hash);
+                    $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                    if ($target.length) {
+                        let scrolltop = $('#header').height() - 4;
+                        var targetOffset = $target.offset().top;
+                        $('html,body').animate({
+                                scrollTop: targetOffset - scrolltop
+                            },
+                            500);
+                        return false;
+                    }
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
