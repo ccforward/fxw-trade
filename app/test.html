@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <script src="../assets/jQuery.js"></script>
+
+</head>
+
+<body>
+  <div>
+    <input type="text" id="txt">
+    <button id="btn">naigate</button>
+  </div>
+
+</body>
+
+<script>
+  (function(){
+    $('#btn').on('click', function(){
+      const url = $('#txt').val()
+      location.href = url
+    })
+  })()
+</script>
+
+</html>
