@@ -1,0 +1,5 @@
+@import './base.css';
+
+.el-button {
+  outline: none !important;
+}
