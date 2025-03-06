@@ -61,6 +61,7 @@ const isLoginPage = computed(() => route.path === '/login')
 
 const handleCommand = async (command) => {
   if (command === 'logout') {
+    deleteCookie('panda_user_uid')
     deleteCookie('panda_user_role')
     deleteCookie('panda_user_name')
     await request({
