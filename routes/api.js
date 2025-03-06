@@ -98,6 +98,28 @@ router.post('/users/create', async (req, res) => {
   }
 })
 
+router.post('/users/delete', async (req, res) => {
+  const { uid } = req
+  const { id } = req.body
+  try {
+    // 权限校验
+    const currentUser = await UserModel.findOne({ id: uid })
+    if (!currentUser || currentUser.role < 100) {
+      return res.send({ success: false, message: '无删除权限' })
+    }
+    // 校验用户是否存在
+    const user = await UserModel.findOne({ id })
+    if (!user) {
+      return res.send({ success: false, message: '用户不存在' })
+    }
+    // 删除用户
+    await UserModel.deleteOne({ id })
+    res.send({ success: true, message: '用户删除成功' })
+  } catch (err) {
+    res.send({ success: false, message: err.message })
+  }
+})
+
 // 订单列表查询
 router.post('/orders/list', async (req, res) => {
   const { uid } = req
