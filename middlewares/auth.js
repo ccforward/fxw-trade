@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
   if (token) {
     const data = decrypt(SECRET_KEY, SECRET_IV, Buffer.from(token, 'hex'))
     const ret = data.split('__')
-    const uid = ret[1]
+    const { uid } = JSON.parse(ret[1])
     const expires = ret[2]
     if (expires < new Date().getTime()) {
       return res.send({ success: false, msg: 'Login expired' });
