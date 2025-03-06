@@ -72,10 +72,11 @@ const handleLogin = async () => {
     // setCookie('panda_user_role', role)
     // setCookie('panda_user_name', encodeURIComponent(name))
     router.replace('/')
+    loading.value = false
   } else {
+    loading.value = false
     ElMessage.error(ret.message)
   }
-  loading.value = false
 }
 
 onBeforeMount(() => {
