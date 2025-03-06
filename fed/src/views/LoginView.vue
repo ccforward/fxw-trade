@@ -67,11 +67,11 @@ const handleLogin = async () => {
     }
   })
   if (ret.success) {
-    const { uid, name, role } = ret
-    setCookie('panda_user_uid', uid)
-    setCookie('panda_user_role', role)
-    setCookie('panda_user_name', encodeURIComponent(name))
-    router.push('/')
+    // const { uid, name, role } = ret
+    // setCookie('panda_user_uid', uid)
+    // setCookie('panda_user_role', role)
+    // setCookie('panda_user_name', encodeURIComponent(name))
+    router.replace('/')
   } else {
     ElMessage.error(ret.message)
   }

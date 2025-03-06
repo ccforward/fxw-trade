@@ -35,10 +35,10 @@ router.post('/user/login', async (req, res) => {
     )
 
     const maxAge = 90 * 24 * 60 * 60 * 1000
-    res.cookie('stk', token, {
-      maxAge,
-      httpOnly: true,
-    })
+    res.cookie('stk', token, { maxAge, httpOnly: true })
+    res.cookie('panda_user_uid', userData.uid, { maxAge })
+    res.cookie('panda_user_role', userData.role, { maxAge })
+    res.cookie('panda_user_name', encodeURIComponent(userData.name), { maxAge })
     res.status(200).send({
       uid: userData.id,
       name: userData.name,
@@ -56,6 +56,9 @@ router.post('/user/login', async (req, res) => {
 
 router.post('/user/logout', async (req, res) => {
   res.clearCookie('stk')
+  res.clearCookie('panda_user_uid')
+  res.clearCookie('panda_user_role')
+  res.clearCookie('panda_user_name')
   res.status(200).send({
     success: true,
   })
