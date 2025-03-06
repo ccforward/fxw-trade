@@ -1,4 +1,3 @@
-const dayjs = require('dayjs')
 const express = require('express')
 const router = express.Router()
 const UserModel = require('../models/users.js')

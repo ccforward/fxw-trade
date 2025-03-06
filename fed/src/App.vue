@@ -54,8 +54,6 @@ const router = useRouter()
 // 菜单数据
 const menuItems = ref([
   { title: '订单列表', path: '/orders', icon: 'WalletFilled' },
-  { title: '我的数据', path: '/mine', icon: 'ShoppingBag' },
-  // { title: '用户管理', path: '/users', icon: 'User' },
 ])
 const userName = ref('')
 const activeMenu = computed(() => route.path)
